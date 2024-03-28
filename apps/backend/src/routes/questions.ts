@@ -20,7 +20,7 @@ router.get('/', async (req: Request, res: Response, next: NextFunction) => {
 router.post('/add', requireAuth, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { questionText } = req.body;
-    const author = req.session.userId;  // Assuming the session has the user's ID
+    const author = req.session.userId;  
     const newQuestion = new Question({ questionText, author });
     await newQuestion.save();
     res.status(201).send('Question added');
